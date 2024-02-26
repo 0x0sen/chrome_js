@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="../etc/style.css">
+  <style>
+    .container{
+      width: 400px; height: 310px; transition: all 0.1s;
+    }
+    .card{
+
+      background-image: url("../img/7.jpg");
+      background-size: cover;
+
+    }
+
+  </style>
+  <script>
+    var container=document.querySelector('.container')
+    container.addEventListener('mousemove',function(e){
+      var x=e.offsetX
+      var y=e.offsetY
+      var rotateY=1/5*x+20
+      var rotateX=4/30*y+20
+      container.style='transform : rotateY(${rotateX}deg) rottateY(${rotateY}deg)'
+    })
+  </script>
+</head>
+
+<body>
+
+  <div class="center">
+    <h2>ダイヤモンド出力</h2>
+    <p>奇数入力でダイヤモンド出力</p>
+    <input type="text" id="number" name="number"><br><br>
+    <button onclick="diamond_input()" class="button-1 ">ダイヤモンド出力</button>
+    <button onclick="clear_diamond()" class="button-2 ">消し</button>
+    <div class="container">
+      <div class="card"><p id="result"></p></div>
+    </div>
+  </div>
+
+ 
+
+  <script src="../etc/diamond.js"></script>
+
+</body>
+
+</html>
