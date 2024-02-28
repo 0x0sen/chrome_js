@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../etc/style.css">
+</head>
+<body>
+  <div class="center">
+    <input type="text" id="number" name="number"><br><br>
+    <button onclick="diamond_input()" class="button-1 ">다이아몬드 출력</button>
+    <button onclick="clear_diamond()" class="button-2 ">지우기</button>
+
+  </div>
+  <p id="result"></p>
+    <script> 
+
+      function diamond_input() {
+        var number = document.getElementById("number").value;
+        var error_print = function() {
+          document.getElementById("result").innerHTML = "홀수를 입력해주세요.";
+        };
+        diamond_print(number);
+      } 
+
+
+      
+      function diamond_print(number){ 
+        var diamond = null;
+        var diamondSize = parseInt(number);
+        diamond = "■".repeat(diamondSize) + "<br>";
+        for (var i = 1; i <= diamondSize; i++) {
+          var spaceCount = Math.abs(diamondSize / 2 - i + 0.5);
+          var starCount = diamondSize - spaceCount * 2;
+          if (diamond === null) diamond = "";
+          for (var j = 1; j <= spaceCount; j++) {
+            diamond += "  ";
+          }
+          for (var k = 1; k <= starCount; k++) {
+            diamond += "*";
+          }
+          diamond += "<br>";
+        }
+        diamond += "■".repeat(diamondSize) + "<br>";
+        document.getElementById("result").innerHTML = diamond;
+      }  
+
+
+
+
+ 
+      
+
+
+
+      function clear_diamond() {
+        document.getElementById("result").innerHTML = "";
+      }
+    </script>
+</body>
+</html>
+
